@@ -10,6 +10,7 @@ public class Financing {
 	}
 	
 	public Financing(Double totalAmount, Double income, Integer months) {
+		validateFinancing(totalAmount, totalAmount, months);
 		this.totalAmount = totalAmount;
 		this.income = income;
 		this.months = months;
@@ -20,6 +21,7 @@ public class Financing {
 	}
 
 	public void setTotalAmount(Double totalAmount) {
+		validateFinancing(totalAmount, totalAmount, months);
 		this.totalAmount = totalAmount;
 	}
 
@@ -28,6 +30,7 @@ public class Financing {
 	}
 
 	public void setIncome(Double income) {
+		validateFinancing(totalAmount, totalAmount, months);
 		this.income = income;
 	}
 
@@ -36,6 +39,7 @@ public class Financing {
 	}
 
 	public void setMonths(Integer months) {
+		validateFinancing(totalAmount, totalAmount, months);
 		this.months = months;
 	}
 	
