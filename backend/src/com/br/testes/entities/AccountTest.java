@@ -3,7 +3,6 @@ package com.br.testes.entities;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import com.br.entities.Account;
 import com.br.testes.factory.AccountFactory;
 
 public class AccountTest {
@@ -27,5 +26,16 @@ public class AccountTest {
     	acc.deposit(amount);
     	
     	Assertions.assertEquals(expectedValue, acc.getBalance());
+    }
+    
+    @Test
+    public void fullWithdrawShouldClearBalanceAndReturnFullBalance() {
+    	double expectedValue = 0.0;
+    	double initialBalance = 800.0;
+    	var acc = AccountFactory.createAccount(initialBalance);
+    	var result = acc.fullWithdraw();
+
+    	Assertions.assertTrue(expectedValue == acc.getBalance());
+    	Assertions.assertTrue(result == initialBalance);
     }
 }
