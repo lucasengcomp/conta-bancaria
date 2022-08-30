@@ -54,4 +54,20 @@ public class FinancingTest {
 			financing.setIncome(1900.0);
 		});
 	}
+	
+	@Test
+	public void setMonthsShouldSetWhenDataValid() {
+		var financing = FinancingFactory.createFinancingValid();
+		financing.setMonths(90);
+
+		Assertions.assertEquals(90, financing.getMonths());
+	}
+
+	@Test
+	public void setMonthsShouldThrowIllegalArgumentExceptionWhenInvalidData() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			var financing = FinancingFactory.createFinancingValid();
+			financing.setMonths(70);
+		});
+	}
 }
