@@ -22,7 +22,7 @@ public class FinancingTest {
 			FinancingFactory.createFinancingInvalid();
 		});
 	}
-	
+
 	@Test
 	public void setTotalAmountShouldSetWhenDataValid() {
 		var financing = FinancingFactory.createFinancingValid();
@@ -38,7 +38,7 @@ public class FinancingTest {
 			financing.setTotalAmount(110000.0);
 		});
 	}
-	
+
 	@Test
 	public void setIncomeShouldSetWhenDataValid() {
 		var financing = FinancingFactory.createFinancingValid();
@@ -54,7 +54,7 @@ public class FinancingTest {
 			financing.setIncome(1900.0);
 		});
 	}
-	
+
 	@Test
 	public void setMonthsShouldSetWhenDataValid() {
 		var financing = FinancingFactory.createFinancingValid();
@@ -69,5 +69,12 @@ public class FinancingTest {
 			var financing = FinancingFactory.createFinancingValid();
 			financing.setMonths(70);
 		});
+	}
+
+	@Test
+	public void entryShouldCalculatteEntryCorrectly() {
+		var financing = FinancingFactory.createFinancingValid();
+
+		Assertions.assertEquals(20000.0, financing.entry());
 	}
 }
