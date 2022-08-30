@@ -38,4 +38,20 @@ public class FinancingTest {
 			financing.setTotalAmount(110000.0);
 		});
 	}
+	
+	@Test
+	public void setIncomeShouldSetWhenDataValid() {
+		var financing = FinancingFactory.createFinancingValid();
+		financing.setIncome(2100.0);
+
+		Assertions.assertEquals(2100.0, financing.getIncome());
+	}
+
+	@Test
+	public void setIncomeShouldThrowIllegalArgumentExceptionWhenInvalidData() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			var financing = FinancingFactory.createFinancingValid();
+			financing.setIncome(1900.0);
+		});
+	}
 }
