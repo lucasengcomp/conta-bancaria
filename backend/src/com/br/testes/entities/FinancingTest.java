@@ -77,4 +77,11 @@ public class FinancingTest {
 
 		Assertions.assertEquals(20000.0, financing.entry());
 	}
+	
+	@Test
+	public void quotaShouldCalculatteQuotaCorrectly() {
+		var financing = FinancingFactory.createFinancingValid();
+
+		Assertions.assertEquals(1000.0, financing.quota());
+	}
 }
